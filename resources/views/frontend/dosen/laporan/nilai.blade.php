@@ -57,17 +57,19 @@
                                             </div>
                                         </li>  
                                       </td>
-                                    @if ($mhs->kelas_id == $kls->id)
-                                      @for ($i = 1; $i <= 16; $i++)
-                                        <td style="background:{{ $key % 2 == 0 ? '#6FB2D2' : '' }}; text-align: center; font-size: 18px; font-weight: bold; border: 1px solid; border-color: #3A5BA0">
-                                          @foreach($mhs->tugas as $tugas)
-                                              @if ($tugas->pertemuan == $i && $kls->pivot->matkul_id == $tugas->jadwal->matkul_id)
-                                                {{ $tugas->nilai->nilai ?? 'Belum dinilai' }}
-                                              @endif
-                                          @endforeach
-                                        </td>
-                                      @endfor
-                                    @endif
+                                      @if ($mhs->kelas_id == $kls->id)
+                                          @for ($i = 1; $i <= 16; $i++)
+                                              <td style="background:{{ $key % 2 == 0 ? '#6FB2D2' : '' }}; text-align: center; font-size: 18px; font-weight: bold; border: 1px solid; border-color: #3A5BA0">
+                                                  @foreach($mhs->tugas as $tugas)
+                                                      @if ($tugas->jadwal && $tugas->nilai) <!-- Validasi relasi tidak null -->
+                                                          @if ($tugas->pertemuan == $i && $kls->pivot->matkul_id == $tugas->jadwal->matkul_id)
+                                                              {{ $tugas->nilai->nilai ?? 'Belum dinilai' }}
+                                                          @endif
+                                                      @endif
+                                                  @endforeach
+                                              </td>
+                                          @endfor
+                                      @endif
                                   @endif
                                 </tr>
                             @endforeach

@@ -34,7 +34,7 @@
                 <div class="pricing-cta bg-primary">
                     <form action="{{ route('absen') }}" method="post">
                         @csrf
-                        <input type="hidden" name="jadwal" value="{{ encrypt($jadwal->id) }}">
+                        <input type="" name="jadwal" value="{{ encrypt($jadwal->id) }}">
                         <button class="btn btn-primary form-control">{{ $isAbsen ? 'Sudah Absen' : 'Absen' }} <i class="fas fa-arrow-right"></i></button>
                     </form>
                 </div>

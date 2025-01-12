@@ -58,16 +58,18 @@
                                           </li>  
                                         </td>
                                       @if ($mhs->kelas_id == $kls->id)
-                                        @for ($i = 1; $i <= 16; $i++)
-                                          <td style="background:{{ $key % 2 == 0 ? '#6FB2D2' : '' }}; text-align: center; font-size: 18px; font-weight: bold; border: 1px solid; border-color: #3A5BA0">
-                                            @foreach($mhs->absens as $absen)
-                                                @if ($absen->pertemuan == $i && $kls->pivot->matkul_id == $absen->jadwal->matkul_id)
-                                                {{ $absen->status ? '✓' : '-' }}
-                                                @endif
-                                            @endforeach
-                                          </td>
-                                        @endfor
-                                      @endif
+                                          @for ($i = 1; $i <= 16; $i++)
+                                              <td style="background:{{ $key % 2 == 0 ? '#6FB2D2' : '' }}; text-align: center; font-size: 18px; font-weight: bold; border: 1px solid; border-color: #3A5BA0">
+                                                  @foreach($mhs->absens as $absen)
+                                                      @if ($absen->jadwal) <!-- Validasi relasi jadwal tidak null -->
+                                                          @if ($absen->pertemuan == $i && $kls->pivot->matkul_id == $absen->jadwal->matkul_id)
+                                                              {{ $absen->status ? '✓' : '-' }}
+                                                          @endif
+                                                      @endif
+                                                  @endforeach
+                                              </td>
+                                          @endfor
+                                        @endif
                                     @endif
                                   </tr>
                               @endforeach

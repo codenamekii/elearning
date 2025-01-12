@@ -33,7 +33,6 @@
 <hr>
     <h1>Dukungan ❤️</h1>
     <p>Kamu bisa dukung saya dengan cara memberikan <b>star ⭐ / fork 🖇️</b> pada project ini</p>
-    <p>Atau kamu bisa donate melalui <a href="https://saweria.co/fadlieferdiyansah" target="_blank">Saweria</a></p>
     <p>Terimakasih atas dukungannya 😊</p>
 <hr>
 
@@ -44,7 +43,6 @@
 <p>Copy code dibawah, buka terminal lalu paste dan enter</p>
 
 ```
-git clone https://github.com/FadlieFerdiyansah/web-elearning.git
 ```
 
 <br>
