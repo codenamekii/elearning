@@ -1,0 +1,8 @@
+{
+  "build": {
+    "base": "heroku/php",
+    "scripts": {
+      "build": "composer install --ignore-platform-reqs --no-dev --optimize-autoloader"
+    }
+  }
+}
